@@ -243,7 +243,7 @@ def remove_channel_from_group(tg_id, group_name, username):
 
 # --- Запуск Telegram-бота ---
 def run_bot():
-    app = ApplicationBuilder().token("7692455160:AAFH7CO7n78y_xu6q45g7CLx9Sv_tH4d2mM").build()
+    app = ApplicationBuilder().token("7800377470:AAEcDECVkGVzOdXrqJRO3lZxo9XMQkdE8Uc").build()
 
     conv_handler = ConversationHandler(
         entry_points=[CallbackQueryHandler(handle_button)],

@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: telephone
+Version: 0.0.5
+Summary: UNKNOWN
+Home-page: https://github.com/voidful/telephone
+Author: Voidful
+Author-email: voidful.stack@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.5.0
+Description-Content-Type: text/markdown
+Requires-Dist: phonemizer
+Requires-Dist: transformers
+
+# Telephone
+
+usage
+
+```python
+from telephone import Telephonemizer
+from datasets import load_dataset
+
+telephonemizer = Telephonemizer()
+
+telephonemizer.convert_text("hello")
+
+ds = load_dataset("patrickvonplaten/librispeech_asr_dummy", "clean", split="validation")
+telephonemizer.convert_voice(ds[0]["audio"]["array"])
+```
+
+## preprocess
+
+bart
+
+```shell
+python data_preprocessing_bart.py --data ./example/example.txt --mask_tok "<extra_id_0>" --poisson_lam 20 --mask_prob 0.01  --output_name ./example/example_out_bart.csv
+```
+
+t5
+
+```shell
+python data_preprocessing_t5.py --data ./example/example.txt --poisson_lam 20 --mask_prob 0.15  --output_name ./example/example_out_t5.csv
+```
+
