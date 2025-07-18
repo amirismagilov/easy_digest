@@ -18,6 +18,8 @@ from telegram.ext import (
     filters
 )
 from asgiref.sync import sync_to_async
+from dotenv import load_dotenv
+load_dotenv()
 
 # --- Django setup ---
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -243,7 +245,7 @@ def remove_channel_from_group(tg_id, group_name, username):
 
 # --- Запуск Telegram-бота ---
 def run_bot():
-    app = ApplicationBuilder().token("7800377470:AAEcDECVkGVzOdXrqJRO3lZxo9XMQkdE8Uc").build()
+    app = ApplicationBuilder().token(os.getenv("TG_API_KEY")).build()
 
     conv_handler = ConversationHandler(
         entry_points=[CallbackQueryHandler(handle_button)],

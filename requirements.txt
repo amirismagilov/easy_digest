@@ -4,3 +4,4 @@ python-telegram-bot
 rq
 redis
 requests
+beautifulsoup4>=4.12.2
